@@ -1,0 +1,55 @@
+====================================
+File changed: sam.py
+Author of the change: samuel coombe
+Description of the change: adding to my knowledge
+Date of the change: 28/10/16
+====================================
+File changed: sam.py
+Author of the change: samuel coombe
+Description of the change: adding to my knowldge 
+Date of the change: 28/10/16
+====================================
+File changed: 
+Author of the change: sam.py
+Description of the change: 
+Date of the change: 28/10/16
+====================================
+File changed: 
+Author of the change: 
+Description of the change: 
+Date of the change: 28/10/16
+====================================
+File changed: 
+Author of the change: 
+Description of the change: 
+Date of the change: 28/10/16
+====================================
+File changed: py.cham
+Author of the change: Scoombe
+Description of the change: to imporve my knwoledge
+Date of the change: 31/10/16
+====================================
+File changed: commit.py
+Author of the change: Sam coombe
+Description of the change: Improving my kowledge
+Date of the change: 31/10/16
+====================================
+File changed: 
+Author of the change: 
+Description of the change: 
+Date of the change: 31/10/16
+====================================
+File changed: 
+Author of the change: 
+Description of the change: 
+Date of the change: 31/10/16
+====================================
+File changed: commit_change
+Author of the change: Samuel
+Description of the change: commit_change
+Date of the change: 31/10/16
+====================================
+File changed: commit_change.py
+Author of the change: Samuel Coombe
+Description of the change: Changing the commit change
+Date of the change: 31/10/16
