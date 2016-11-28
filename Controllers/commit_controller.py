@@ -7,9 +7,9 @@ from  Models import commit_model
 from Controllers import project_controller
 
 class controler():
-    def __init__(dbname,self):
+    def __init__(self,dbname):
         self.dbname = dbname
-        self.changes = self.getChangesSQLITE3()
+        self.getChangesSQLITE3()
     """
     Function for getting all of the changes from the live sqlite database
     """
@@ -25,16 +25,18 @@ class controler():
             description = change[4]
             date_of_change = change[5]
             commits.append(commit_model.changes(change_id,project_id,file, author, description, date_of_change))
-        return commits
         conn.close()
+        self.commits = commits
+
+
     """
     Commiting the changes to database.
     Takes a list of commit_model objects. Takes the dbname parameter
     Deleting the changes then adding new ones.
     """
-    def commitChangeSQLITE3(changes,dbname,self):
+    def commitChangeSQLITE3(self,changes):
         #a test dbname can be passed into the database
-        conn = sqlite3.connect(dbname)
+        conn = sqlite3.connect(self.dbname)
         create  = conn.cursor()
         project = conn.cursor()
         project.execute("SELECT * FROM PROJECT")
@@ -56,14 +58,14 @@ class controler():
     Adding a new change to the sqlite database
     taking atributes project id, file, author, date, description in a dictionary
     """
-    def createChangeSQLITE3(attributes,dbname,self):
-        if checkProjectID(dbname, attributes["project_id"]):
-            conn = sqlite3.connect(dbname)
+    def createChangeSQLITE3(self,attributes):
+        if checkProjectID(self.dbname, attributes["project_id"]):
+            self.getChangesSQLITE3()
+            conn = sqlite3.connect(self.dbname)
             c = conn.cursor()
-            changes = self.getChangesSQLITE3()
             change_id = 1
             #getting the change id by selecting all of the changes and plussing 1 to the id
-            for change in changes:
+            for change in self.commits:
                 chng = change.toDict()
                 if chng["change_id"] >= change_id:
                     change_id = int(chng["change_id"]) + 1
@@ -72,8 +74,10 @@ class controler():
                          "VALUES(?, ?, ?, ?, ?,?)",(change_id, int(attributes["project_id"]),attributes["file"],attributes["author"],attributes["description"],attributes["date_of_change"]))
             conn.commit()
             conn.close()
+            self.getChangesSQLITE3()
             return True
         else:
+            self.getChangesSQLITE3()
             return False
 
 """

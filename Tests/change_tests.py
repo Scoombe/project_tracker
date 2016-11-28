@@ -16,9 +16,9 @@ def createchangesqlite3test():
     description = "testing the createChangeTestMethod"
     attributes = {"project_id": 1, "author": "test test", "file": "test.py", "date_of_change": date,
                   "description": description}
-    commit_controller.createChangeSQLITE3(attributes,dbname=dbfile)
-    last_change = checkLastChange()
-    print(last_change)
+    contoller = commit_controller.controler(dbname=dbfile)
+    contoller.createChangeSQLITE3(attributes)
+    last_change = contoller.commits[len(contoller.commits) - 1].toDict()
     return {"expected":{"change_id": 1,"project_id":1, "description":description, "date_of_change": date,
             "file": "test.py", "author": "test test"},
             "actual": last_change}

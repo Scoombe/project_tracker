@@ -18,14 +18,16 @@ def clearTestDB():
 def createProjectsqlite3test():
     attritbutes = {}
     attritbutes["author"] = "Samuel Coombe"
-    attritbutes["description"] = "neew project for testing the project controller"
+    attritbutes["description"] = "new project for testing the project controller"
     attritbutes["date_of_creation"]  = time.strftime('%d/%m/%y')
     attritbutes["language"] = "python"
     attritbutes["name"] = "testProject"
     controller = project_controller.controller(db_file)
     controller.createProjectSQLITE3(attritbutes)
-    return {"actual":controller.getProjectsSQLITE3().toDict(),
-            "expected":{"project_id":str(1), "project_name":attritbutes["name"],
+    #getting the last project
+    projs = controller.projects[len(controller.projects) - 1].toDict()
+    return {"actual":projs,
+            "expected":{"project_id":1, "project_name":attritbutes["name"],
                         "author":attritbutes["author"],"description":attritbutes["description"],
                         "date_of_creation":attritbutes["date_of_creation"],
                         "language": attritbutes["language"]}
