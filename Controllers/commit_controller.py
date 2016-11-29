@@ -59,7 +59,7 @@ class controler():
     taking atributes project id, file, author, date, description in a dictionary
     """
     def createChangeSQLITE3(self,attributes):
-        if checkProjectID(self.dbname, attributes["project_id"]):
+        if self.checkProjectID(attributes["project_id"]):
             self.getChangesSQLITE3()
             conn = sqlite3.connect(self.dbname)
             c = conn.cursor()
@@ -80,15 +80,15 @@ class controler():
             self.getChangesSQLITE3()
             return False
 
-"""
-functino for checking that the project id passed into the create change is valid
-"""
-def checkProjectID(dbname, project_id):
-    conn = sqlite3.connect(dbname)
-    changes = conn.execute("SELECT * FROM project")
-    valid_project_id = False
-    for change in changes.fetchall():
-        if project_id == change[0]:
-            valid_project_id = True
-
-    return  valid_project_id
+    """
+    functino for checking that the project id passed into the create change is valid
+    """
+    def checkProjectID(self,project_id):
+        control = project_controller.controller(self.dbname)
+        projs = control.projects
+        valid_project_id = False
+        for proj in projs:
+            proj = proj.toDict()
+            if project_id == proj["project_id"]:
+                valid_project_id = True
+        return  valid_project_id
