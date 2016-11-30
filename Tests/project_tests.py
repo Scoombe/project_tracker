@@ -1,7 +1,8 @@
 import sys
 import os.path
+#adding the files to the sys path that are in the diretory above, so that if the test is run directly
+#you will be able to see the modules from the directory above.
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
-print(os.path.join(os.path.dirname(__file__), '..'))
 from Controllers import project_controller
 import time
 import sqlite3

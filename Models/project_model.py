@@ -1,5 +1,11 @@
 """Projects model"""
-class projects:
+
+from Models.model import model
+"""
+defining the attributes for the model of a project
+inherits from the model base class.
+"""
+class projects(model):
     def __init__(self, projectAttrs):
         self.PROJECT_ID = projectAttrs["project_id"]
         self.PROJECT_NAME = projectAttrs["project_name"]
@@ -10,6 +16,8 @@ class projects:
     """
     Function for returning the model to a dictionary
     """
+    """
     def toDict(self):
         return {"project_id":self.PROJECT_ID, "project_name":self.PROJECT_NAME,"author":self.AUTHOR,
                 "description":self.DESCRIPTION, "date_of_creation":self.DATE_OF_CREATION, "language": self.LANGUAGE}
+    """
