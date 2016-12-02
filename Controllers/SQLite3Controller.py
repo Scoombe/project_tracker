@@ -6,8 +6,12 @@ class controller():
         """Function for the querying of a database"""
         conn = sqlite3.connect(self.dbname)
         curs = conn.cursor()
-
-        print (sqlite_query)
         curs.execute(sqlite_query,parameters)
         conn.commit()
         conn.close()
+    def DatabaseGet(self, sqlite_query,parameters):
+        """function for returning the results as a list"""
+        conn = sqlite3.connect(self.dbname)
+        results = conn.execute(sqlite_query, parameters)
+        conn.close()
+        return results

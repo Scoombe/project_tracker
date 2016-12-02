@@ -95,11 +95,12 @@ class commitChangeTest(unittest.TestCase):
         controller.createChangeSQLITE3(attributes)
         attributes["description"] = "this is an updated description"
         attributes["author"] = "updated author"
-        attributes[""]
+        attributes["file"] = "updated file"
         controller.updateChangeSQLITE3(attributes)
         last_commit = controller.commits[0].toDict()
         self.assertEquals(last_commit["description"],"this is an updated description")
-
+        self.assertEquals(last_commit["author"],"updated author")
+        self.assertEquals(last_commit["file"],"updated file")
 
 clearTestDB()
 unittest.main()

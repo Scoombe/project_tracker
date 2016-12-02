@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/Tests/change_tests.py" line="50" />
+    <bookmark url="file://$PROJECT_DIR$/Tests/change_tests.py" line="43" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc586dcc-f310-4ff0-a867-b315169b2cbd" name="Default" comment="Added a sqlite controller class to handle transactions.&#10;&#10;Added the ability to update a change.&#10;&#10;TODO: add test for the update. add select for the sqlite controller and change and existing code in the contollers to use the new sqlite controller.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Controllers/SQLite3Controller.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Models/model.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Data/Change.db" afterPath="$PROJECT_DIR$/Controllers/SQLite3Controller.py" />
+    <list default="true" id="bc586dcc-f310-4ff0-a867-b315169b2cbd" name="Default" comment="Added testing for the updating of a change. &#10;&#10;TODO add the same functions to the project controller.">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data/Changes.db" afterPath="$PROJECT_DIR$/Data/Changes.db" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data/test.db" afterPath="$PROJECT_DIR$/Data/test.db" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Controllers/SQLite3Controller.py" afterPath="$PROJECT_DIR$/Controllers/SQLite3Controller.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Controllers/commit_controller.py" afterPath="$PROJECT_DIR$/Controllers/commit_controller.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Models/commit_model.py" afterPath="$PROJECT_DIR$/Models/commit_model.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Models/project_model.py" afterPath="$PROJECT_DIR$/Models/project_model.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Controllers/project_controller.py" afterPath="$PROJECT_DIR$/Controllers/project_controller.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/change_tests.py" afterPath="$PROJECT_DIR$/Tests/change_tests.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/project_tests.py" afterPath="$PROJECT_DIR$/Tests/project_tests.py" />
     </list>
     <ignored path="project_startup.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,15 +48,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="project_controller.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="project_controller.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Controllers/project_controller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="39" column="22" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
+            <state relative-caret-position="432">
+              <caret line="51" column="41" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
-                <marker date="1480110398873" expanded="true" signature="458:479" ph="SELECT * FRO... project" />
-                <marker date="1480110398873" expanded="true" signature="1631:1696" ph="INSERT INTO project... " />
+                <marker date="1480716742777" expanded="true" signature="591:612" ph="SELECT * FRO... project" />
+                <marker date="1480716742777" expanded="true" signature="1561:1677" ph="INSERT INTO project... " />
               </folding>
             </state>
           </provider>
@@ -68,23 +65,23 @@
       <file leaf-file-name="commit_model.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Models/commit_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
+            <state relative-caret-position="153">
+              <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="change_tests.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="change_tests.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tests/change_tests.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="85" column="25" selection-start-line="85" selection-start-column="25" selection-end-line="85" selection-end-column="25" />
+            <state relative-caret-position="272">
+              <caret line="101" column="65" selection-start-line="101" selection-start-column="65" selection-end-line="101" selection-end-column="65" />
               <folding>
                 <element signature="e#43#53#0" expanded="true" />
-                <marker date="1480544167828" expanded="true" signature="1249:1277" ph="SELECT * FRO... change" />
-                <marker date="1480544167828" expanded="true" signature="2362:2380" ph="DELETE FROM " />
-                <marker date="1480544167828" expanded="true" signature="2399:2418" ph="DELETE FROM " />
+                <marker date="1480699057180" expanded="true" signature="2210:2228" ph="DELETE FROM " />
+                <marker date="1480699057180" expanded="true" signature="2247:2266" ph="DELETE FROM " />
+                <marker date="1480699057180" expanded="true" signature="2909:2937" ph="SELECT CHANG... change" />
               </folding>
             </state>
           </provider>
@@ -126,17 +123,15 @@
       <file leaf-file-name="commit_controller.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Controllers/commit_controller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="92" column="32" selection-start-line="92" selection-start-column="32" selection-end-line="92" selection-end-column="32" />
+            <state relative-caret-position="302">
+              <caret line="73" column="25" selection-start-line="73" selection-start-column="25" selection-end-line="73" selection-end-column="25" />
               <folding>
                 <element signature="e#117#131#0" expanded="true" />
-                <marker date="1480544109897" expanded="true" signature="637:657" ph="SELECT * FRO... change" />
-                <marker date="1480544109897" expanded="true" signature="1835:1856" ph="SELECT * FRO... PROJECT" />
-                <marker date="1480544109897" expanded="true" signature="1878:1903" ph="INSERT INTO change... " />
-                <marker date="1480544109897" expanded="true" signature="2276:2294" ph="INSERT INTO changemissing_value... " />
-                <marker date="1480544109897" expanded="true" signature="2862:2987" ph="INSERT INTO change... " />
-                <marker date="1480544109897" expanded="true" signature="3619:3725" ph="INSERT INTO change... " />
-                <marker date="1480544109897" expanded="true" signature="3619:3731" ph="INSERT INTO change... " />
+                <marker date="1480715558662" expanded="true" signature="663:683" ph="SELECT * FRO... change" />
+                <marker date="1480715558662" expanded="true" signature="1978:2103" ph="INSERT INTO change... " />
+                <marker date="1480715558662" expanded="true" signature="2764:3221" ph="UPDATE chang... " />
+                <marker date="1480715558662" expanded="true" signature="2770:3165" ph="INSERT INTO change... " />
+                <marker date="1480715558662" expanded="true" signature="2770:3202" ph="INSERT INTO change... " />
               </folding>
             </state>
           </provider>
@@ -145,8 +140,8 @@
       <file leaf-file-name="SQLite3Controller.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Controllers/SQLite3Controller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
+            <state relative-caret-position="204">
+              <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -208,14 +203,14 @@
         <option value="$PROJECT_DIR$/Views/commit_change.py" />
         <option value="$PROJECT_DIR$/__init__.py" />
         <option value="$PROJECT_DIR$/ReadMe" />
-        <option value="$PROJECT_DIR$/Controllers/project_controller.py" />
         <option value="$PROJECT_DIR$/Models/project_model.py" />
         <option value="$PROJECT_DIR$/Models/commit_model.py" />
         <option value="$PROJECT_DIR$/Models/model.py" />
         <option value="$PROJECT_DIR$/Tests/project_tests.py" />
+        <option value="$PROJECT_DIR$/Tests/change_tests.py" />
         <option value="$PROJECT_DIR$/Controllers/SQLite3Controller.py" />
         <option value="$PROJECT_DIR$/Controllers/commit_controller.py" />
-        <option value="$PROJECT_DIR$/Tests/change_tests.py" />
+        <option value="$PROJECT_DIR$/Controllers/project_controller.py" />
       </list>
     </option>
   </component>
@@ -256,7 +251,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -334,6 +328,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -711,7 +706,14 @@
       <option name="project" value="LOCAL" />
       <updated>1480442773937</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added a sqlite controller class to handle transactions.&#10;&#10;Added the ability to update a change.&#10;&#10;TODO: add test for the update. add select for the sqlite controller and change and existing code in the contollers to use the new sqlite controller.">
+      <created>1480544184370</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1480544184370</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -719,7 +721,7 @@
       <configuration name="Unittests in change_tests" configurationId="tests" />
     </history-entry>
   </component>
-  <component name="TodoView" selected-index="4">
+  <component name="TodoView">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
     </todo-panel>
@@ -730,14 +732,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="56" y="3" width="1315" height="772" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2932271" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29561752" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32626426" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32818073" sideWeight="0.50970876" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32952693" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32952693" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32789558" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32300162" sideWeight="0.49029127" order="9" side_tool="false" content_ui="tabs" />
@@ -876,13 +878,11 @@
           <caret line="14" column="50" selection-start-line="14" selection-start-column="50" selection-end-line="14" selection-end-column="50" />
           <folding>
             <element signature="e#117#131#0" expanded="true" />
-            <marker date="1480544109897" expanded="true" signature="637:657" ph="SELECT * FRO... change" />
-            <marker date="1480544109897" expanded="true" signature="1835:1856" ph="SELECT * FRO... PROJECT" />
-            <marker date="1480544109897" expanded="true" signature="1878:1903" ph="INSERT INTO change... " />
-            <marker date="1480544109897" expanded="true" signature="2276:2294" ph="INSERT INTO changemissing_value... " />
-            <marker date="1480544109897" expanded="true" signature="2862:2987" ph="INSERT INTO change... " />
-            <marker date="1480544109897" expanded="true" signature="3619:3725" ph="INSERT INTO change... " />
-            <marker date="1480544109897" expanded="true" signature="3619:3731" ph="INSERT INTO change... " />
+            <marker date="1480715558662" expanded="true" signature="663:683" ph="SELECT * FRO... change" />
+            <marker date="1480715558662" expanded="true" signature="1978:2103" ph="INSERT INTO change... " />
+            <marker date="1480715558662" expanded="true" signature="2764:3221" ph="UPDATE chang... " />
+            <marker date="1480715558662" expanded="true" signature="2770:3165" ph="INSERT INTO change... " />
+            <marker date="1480715558662" expanded="true" signature="2770:3202" ph="INSERT INTO change... " />
           </folding>
         </state>
       </provider>
@@ -907,15 +907,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -935,14 +926,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Models/commit_model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tests/project_tests.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -950,43 +933,6 @@
           <folding>
             <element signature="e#0#10#0" expanded="true" />
             <marker date="1480526814621" expanded="true" signature="495:514" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controllers/project_controller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="39" column="22" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-            <marker date="1480110398873" expanded="true" signature="458:479" ph="SELECT * FRO... project" />
-            <marker date="1480110398873" expanded="true" signature="1631:1696" ph="INSERT INTO project... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controllers/SQLite3Controller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controllers/commit_controller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="92" column="32" selection-start-line="92" selection-start-column="32" selection-end-line="92" selection-end-column="32" />
-          <folding>
-            <element signature="e#117#131#0" expanded="true" />
-            <marker date="1480544109897" expanded="true" signature="637:657" ph="SELECT * FRO... change" />
-            <marker date="1480544109897" expanded="true" signature="1835:1856" ph="SELECT * FRO... PROJECT" />
-            <marker date="1480544109897" expanded="true" signature="1878:1903" ph="INSERT INTO change... " />
-            <marker date="1480544109897" expanded="true" signature="2276:2294" ph="INSERT INTO changemissing_value... " />
-            <marker date="1480544109897" expanded="true" signature="2862:2987" ph="INSERT INTO change... " />
-            <marker date="1480544109897" expanded="true" signature="3619:3725" ph="INSERT INTO change... " />
-            <marker date="1480544109897" expanded="true" signature="3619:3731" ph="INSERT INTO change... " />
           </folding>
         </state>
       </provider>
@@ -999,15 +945,66 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Models/commit_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Tests/change_tests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="85" column="25" selection-start-line="85" selection-start-column="25" selection-end-line="85" selection-end-column="25" />
+        <state relative-caret-position="272">
+          <caret line="101" column="65" selection-start-line="101" selection-start-column="65" selection-end-line="101" selection-end-column="65" />
           <folding>
             <element signature="e#43#53#0" expanded="true" />
-            <marker date="1480544167828" expanded="true" signature="1249:1277" ph="SELECT * FRO... change" />
-            <marker date="1480544167828" expanded="true" signature="2362:2380" ph="DELETE FROM " />
-            <marker date="1480544167828" expanded="true" signature="2399:2418" ph="DELETE FROM " />
+            <marker date="1480699057180" expanded="true" signature="2210:2228" ph="DELETE FROM " />
+            <marker date="1480699057180" expanded="true" signature="2247:2266" ph="DELETE FROM " />
+            <marker date="1480699057180" expanded="true" signature="2909:2937" ph="SELECT CHANG... change" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controllers/commit_controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="73" column="25" selection-start-line="73" selection-start-column="25" selection-end-line="73" selection-end-column="25" />
+          <folding>
+            <element signature="e#117#131#0" expanded="true" />
+            <marker date="1480715558662" expanded="true" signature="663:683" ph="SELECT * FRO... change" />
+            <marker date="1480715558662" expanded="true" signature="1978:2103" ph="INSERT INTO change... " />
+            <marker date="1480715558662" expanded="true" signature="2764:3221" ph="UPDATE chang... " />
+            <marker date="1480715558662" expanded="true" signature="2770:3165" ph="INSERT INTO change... " />
+            <marker date="1480715558662" expanded="true" signature="2770:3202" ph="INSERT INTO change... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controllers/SQLite3Controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controllers/project_controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="51" column="41" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+            <marker date="1480716742777" expanded="true" signature="591:612" ph="SELECT * FRO... project" />
+            <marker date="1480716742777" expanded="true" signature="1561:1677" ph="INSERT INTO project... " />
           </folding>
         </state>
       </provider>
