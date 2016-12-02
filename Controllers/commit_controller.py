@@ -89,12 +89,23 @@ class controler():
         function for the udating one change
         takes a dictionary on attributes
         """
-        #calling the sqlite controller already defined in the ctor
-        #takes *args and a query
-        self.sqliteController.DatabaseTransaction("UPDATE change(PROJECT_ID, FILE_PATH, AUTHOR,DESCRIPTION,DATE_OF_CHANGE)"
-                  "VALUES(?, ?, ?, ?,?) WHERE CHANGE_ID=?",int(attributes["project_id"]), attributes["file"], attributes["author"], attributes["description"],
-                  attributes["date_of_change"],attributes["change_id"])
-
+        if self.checkProjectID(attributes["project_id"]):
+            #calling the sqlite controller already defined in the ctor
+            #takes *args and a query
+            self.sqliteController.DatabaseTransaction("UPDATE change "
+                                                      "SET PROJECT_ID = ?, "
+                                                      "FILE_PATH = ?, "
+                                                      "AUTHOR = ?,"
+                                                      "DESCRIPTION = ?, "
+                                                      "DATE_OF_CHANGE = ? "
+                                                      "WHERE CHANGE_ID = ?",
+                                                      (int(attributes["project_id"]), attributes["file"], attributes["author"], attributes["description"],
+                      attributes["date_of_change"],attributes["change_id"]))
+            #updating the changes.
+            self.getChangesSQLITE3()
+            return True
+        else:
+            return False
     """
     functino for checking that the project id passed into the create change is valid
     """
