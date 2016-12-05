@@ -4,14 +4,9 @@
     <bookmark url="file://$PROJECT_DIR$/Tests/change_tests.py" line="43" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc586dcc-f310-4ff0-a867-b315169b2cbd" name="Default" comment="Added testing for the updating of a change. &#10;&#10;TODO add the same functions to the project controller.">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data/Changes.db" afterPath="$PROJECT_DIR$/Data/Changes.db" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data/test.db" afterPath="$PROJECT_DIR$/Data/test.db" />
+    <list default="true" id="bc586dcc-f310-4ff0-a867-b315169b2cbd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Controllers/SQLite3Controller.py" afterPath="$PROJECT_DIR$/Controllers/SQLite3Controller.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Controllers/commit_controller.py" afterPath="$PROJECT_DIR$/Controllers/commit_controller.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Controllers/project_controller.py" afterPath="$PROJECT_DIR$/Controllers/project_controller.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/change_tests.py" afterPath="$PROJECT_DIR$/Tests/change_tests.py" />
     </list>
     <ignored path="project_startup.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,12 +46,14 @@
       <file leaf-file-name="project_controller.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Controllers/project_controller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="51" column="41" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
+            <state relative-caret-position="234">
+              <caret line="72" column="12" selection-start-line="72" selection-start-column="12" selection-end-line="72" selection-end-column="12" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
-                <marker date="1480716742777" expanded="true" signature="591:612" ph="SELECT * FRO... project" />
-                <marker date="1480716742777" expanded="true" signature="1561:1677" ph="INSERT INTO project... " />
+                <marker date="1480964090927" expanded="true" signature="591:612" ph="SELECT * FRO... project" />
+                <marker date="1480964090927" expanded="true" signature="1561:1677" ph="INSERT INTO project... " />
+                <marker date="1480964090927" expanded="true" signature="3662:3724" ph="UPDATE proje... " />
+                <marker date="1480964090927" expanded="true" signature="3662:3776" ph="UPDATE proje... " />
               </folding>
             </state>
           </provider>
@@ -75,7 +72,7 @@
       <file leaf-file-name="change_tests.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tests/change_tests.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
+            <state relative-caret-position="1700">
               <caret line="101" column="65" selection-start-line="101" selection-start-column="65" selection-end-line="101" selection-end-column="65" />
               <folding>
                 <element signature="e#43#53#0" expanded="true" />
@@ -123,7 +120,7 @@
       <file leaf-file-name="commit_controller.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Controllers/commit_controller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
+            <state relative-caret-position="1190">
               <caret line="73" column="25" selection-start-line="73" selection-start-column="25" selection-end-line="73" selection-end-column="25" />
               <folding>
                 <element signature="e#117#131#0" expanded="true" />
@@ -252,6 +249,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -328,7 +326,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -713,7 +710,14 @@
       <option name="project" value="LOCAL" />
       <updated>1480544184370</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Refactoring old code to use the sql controller code">
+      <created>1480716839151</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1480716839151</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -734,7 +738,7 @@
     <frame x="56" y="3" width="1315" height="772" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29561752" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3003984" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32626426" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32818073" sideWeight="0.50970876" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -766,9 +770,11 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Adding validation on the commit_controller to only accept valid project ID's" />
     <MESSAGE value="Added a sqlite controller class to handle transactions.&#10;&#10;Added the ability to update a change.&#10;&#10;TODO: add test for the update. add select for the sqlite controller and change and existing code in the contollers to use the new sqlite controller." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a sqlite controller class to handle transactions.&#10;&#10;Added the ability to update a change.&#10;&#10;TODO: add test for the update. add select for the sqlite controller and change and existing code in the contollers to use the new sqlite controller." />
+    <MESSAGE value="Refactoring old code to use the sql controller code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring old code to use the sql controller code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -963,7 +969,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tests/change_tests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
+        <state relative-caret-position="1700">
           <caret line="101" column="65" selection-start-line="101" selection-start-column="65" selection-end-line="101" selection-end-column="65" />
           <folding>
             <element signature="e#43#53#0" expanded="true" />
@@ -976,7 +982,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Controllers/commit_controller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
+        <state relative-caret-position="1190">
           <caret line="73" column="25" selection-start-line="73" selection-start-column="25" selection-end-line="73" selection-end-column="25" />
           <folding>
             <element signature="e#117#131#0" expanded="true" />
@@ -999,12 +1005,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Controllers/project_controller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="51" column="41" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
+        <state relative-caret-position="234">
+          <caret line="72" column="12" selection-start-line="72" selection-start-column="12" selection-end-line="72" selection-end-column="12" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
-            <marker date="1480716742777" expanded="true" signature="591:612" ph="SELECT * FRO... project" />
-            <marker date="1480716742777" expanded="true" signature="1561:1677" ph="INSERT INTO project... " />
+            <marker date="1480964090927" expanded="true" signature="591:612" ph="SELECT * FRO... project" />
+            <marker date="1480964090927" expanded="true" signature="1561:1677" ph="INSERT INTO project... " />
+            <marker date="1480964090927" expanded="true" signature="3662:3724" ph="UPDATE proje... " />
+            <marker date="1480964090927" expanded="true" signature="3662:3776" ph="UPDATE proje... " />
           </folding>
         </state>
       </provider>

@@ -47,8 +47,41 @@ class controller():
         self.getProjectsSQLITE3()
         validAttrs = True
         return validAttrs
+
     def validateAttributes(self, attributes):
         """function for validating the project attributes"""
-        #TODO finish vallidate attributes
+        errorString = ""
+        validAttrs = True
+        authorLength = len(str(attributes["author"]))
+
+        descriptionLength = len(str(attributes["description"]))
+        if descriptionLength > 240 or descriptionLength == 0:
+            errorString+= self.buildErrorLenString("Description", 0,240)
+        languageLength = len(str(attributes["language"]))
+        if languageLength > 40 or languageLength == 0:
+            errorString+= self.buildErrorLenString("Language",0,40)
+        nameLength = len(str(attributes["name"]))
+        if nameLength > 50 or nameLength == 0:
+            self.buildErrorLenString("name",0,50)
+        #todo add date validation then add the validation function to the change controller
+        #todo refactor to length validation function that takes lower bound upper bound attribute and name
+        #todo this will then call the buildError Len string
+    def lengthValidation(self,attr,name,upperBound,lowerbound):
+        length = len(str(attr))
+        Valid = True
+        if len > upperBound or len <= lowerbound:
+            self.buildErrorLenString(name,lowerbound,upperBound)
+            Valid = False
+        return Valid
+    def buildErrorLenString(self,attribute, lowerBound, upperBound):
+        """function for building an error with the incorrect length"""
+        return "Error: "+ attribute +" is not the correct length must be between "+ lowerBound + "  and "+  upperBound + \
+        " charectors\n"
     def updateProjectSQLITE3(self, attributes):
         """function for updating a project with sqlite3"""
+        validAttrs = False
+        self.sqlite_controller("UPDATE project "
+                               "SET AUTHOR=?, DESCRIPTION =?,DATE_OF_CREATION=?,LANGUAGE=?,NAME=?",attributes)
+        self.getProjectsSQLITE3()
+        validAttrs = True
+        return validAttrs
