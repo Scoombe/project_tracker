@@ -16,6 +16,21 @@ def clearTestDB():
     conn.commit()
     conn.close()
 
+def getProjectId():
+    """function for getting the last project_id"""
+    """getting the last change from the commit controller"""
+    project_id = 1
+    # getting the change id from the test database
+    conn = sqlite3.connect(db_file)
+    # the sql for getting the right data
+    projects = conn.execute("SELECT PROJECT_ID FROM project")
+    # looping round all of the returned rows from the database
+    for project in projects.fetchall():
+        if project[0] >= project_id:
+            project_id = project[0]
+    return project_id
+
+
 def createProjectsqlite3test():
     attritbutes = {}
     attritbutes["author"] = "Samuel Coombe"
@@ -28,7 +43,7 @@ def createProjectsqlite3test():
     #getting the last project
     projs = controller.projects[len(controller.projects) - 1].toDict()
     return {"actual":projs,
-            "expected":{"project_id":1, "project_name":attritbutes["name"],
+            "expected":{"project_id":getProjectId(), "project_name":attritbutes["name"],
                         "author":attritbutes["author"],"description":attritbutes["description"],
                         "date_of_creation":attritbutes["date_of_creation"],
                         "language": attritbutes["language"]}

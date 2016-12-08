@@ -9,9 +9,10 @@ class controller():
         curs.execute(sqlite_query,parameters)
         conn.commit()
         conn.close()
-    def DatabaseGet(self, sqlite_query,parameters):
+    def DatabaseGet(self, sqlite_query,parameters = []):
         """function for returning the results as a list"""
         conn = sqlite3.connect(self.dbname)
         results = conn.execute(sqlite_query, parameters)
+        results = results.fetchall()
         conn.close()
         return results

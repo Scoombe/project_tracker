@@ -26,7 +26,7 @@ def createchangesqlite3test():
     #needs the calculated change_id is the commits are in a dictionary
     last_change = contoller.commits_dict[str(change_id)].toDict()
     #return the actual data and the expeceted data.
-    return {"expected":{"change_id": change_id,"project_id":1, "description":"testing the createChangeTestMethod",
+    return {"expected":{"change_id": change_id,"project_id":getProjectID(), "description":"testing the createChangeTestMethod",
                         "date_of_change": attributes["date_of_change"],"file": "test.py", "author": "test test"},
             "actual": last_change}
 
@@ -51,7 +51,7 @@ def createAttributes():
     """function for building attributes for a correct change"""
     date = time.strftime('%d/%m/%y')
     description = "testing the createChangeTestMethod"
-    attributes = {"project_id": 1, "author": "test test", "file": "test.py", "date_of_change": date,
+    attributes = {"project_id": getProjectID(), "author": "test test", "file": "test.py", "date_of_change": date,
                   "description": description}
     return attributes
 
@@ -68,12 +68,33 @@ def getChangeID():
             change_id = int(change[0])
     return  change_id
 
+def getProjectID():
+    controller = project_controller.controller(dbfile)
+    project = controller.projects
+    project_id = project[-1].toDict()["project_id"]
+    return project_id
 
 def checkLastChange():
     """Returning the last change from the test.db file"""
-    commits = commit_controller.getChangesSQLITE3(dbfile)
+    controller = commit_controller.controler(dbfile)
+    commits = controller.commits
     last_change = commits[len(commits) - 1]
     return last_change.toDict()
+
+def getProjectId():
+    """function for getting the last project_id"""
+    """getting the last change from the commit controller"""
+    project_id = 1
+    # getting the change id from the test database
+    conn = sqlite3.connect(dbfile)
+    # the sql for getting the right data
+    projects = conn.execute("SELECT PROJECT_ID FROM project")
+    # looping round all of the returned rows from the database
+    for project in projects.fetchall():
+        if project[0] >= project_id:
+            project_id = project[0]
+    return project_id
+
 
 #unit test for the commitChange controller
 class commitChangeTest(unittest.TestCase):
@@ -86,7 +107,10 @@ class commitChangeTest(unittest.TestCase):
         attributes = createAttributes()
         attributes["project_id"] = 30
         controller = commit_controller.controler(dbfile)
-        self.assertEquals(controller.createChangeSQLITE3(attributes),False)
+        #expecting an error string from this call
+        valid = controller.createChangeSQLITE3(attributes)
+        self.assertEquals(valid,"invalid project key")
+
     def testupdateChangeTest(self):
         """test for the updating of a change"""
         attributes = createAttributes()
@@ -96,8 +120,10 @@ class commitChangeTest(unittest.TestCase):
         attributes["description"] = "this is an updated description"
         attributes["author"] = "updated author"
         attributes["file"] = "updated file"
+        #because there is an updated change id after the creation
+        attributes["change_id"] = attributes["change_id"]+1
         controller.updateChangeSQLITE3(attributes)
-        last_commit = controller.commits[0].toDict()
+        last_commit = controller.commits[-1].toDict()
         self.assertEquals(last_commit["description"],"this is an updated description")
         self.assertEquals(last_commit["author"],"updated author")
         self.assertEquals(last_commit["file"],"updated file")

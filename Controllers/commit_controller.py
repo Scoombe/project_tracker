@@ -12,15 +12,15 @@ class controler():
     def __init__(self,dbname):
         """Initialisng the class takes a database location as a param"""
         self.dbname = dbname
-        self.getChangesSQLITE3()
         self.sqliteController = SQLite3Controller.controller(self.dbname)
+        self.getChangesSQLITE3()
     def getChangesSQLITE3(self):
         """function for getting all of the changes from the db"""
-        changes = self.sqliteController.DatabaseGet("SELECT * FROM change")
+        changes = self.sqliteController.DatabaseGet("SELECT * FROM change",{})
         commits_dict = {}
         commits = []
         #looping thorugh all of the results from the db
-        for change in changes.fetchall():
+        for change in changes:
             change_id = change[0]
             project_id = change[1]
             file = change[2]
@@ -40,8 +40,9 @@ class controler():
     def createChangeSQLITE3(self,attributes):
         """Adding a new change to the sqlite database
            taking atributes project id, file, author, date, description in a dictionary"""
-        validAttrs = False
-        if self.checkProjectID(attributes["project_id"]):
+        #this function is either returning an error string or True
+        validAttrs = self.validateAttributes(attributes)
+        if validAttrs:
             self.getChangesSQLITE3();
             #creating the sql string to insert values into the database using the sqlite controller defined above
             self.sqliteController.DatabaseTransaction("INSERT INTO change (PROJECT_ID, FILE_PATH, AUTHOR,DESCRIPTION,DATE_OF_CHANGE)"
@@ -49,16 +50,23 @@ class controler():
             self.getChangesSQLITE3()
             validAttrs = True
         else:
+            #updating the project atribute
             self.getChangesSQLITE3()
-        return validAttrs
+            #in this instane the validation is returning a error string
+            return validAttrs
+        self.getChangesSQLITE3()
+        return True
 
     def updateChangeSQLITE3(self,attributes):
         """function for the udating one change
         takes a dictionary on attributes"""
-        validAttrs = False
-        if self.checkProjectID(attributes["project_id"]):
+        #this function returns True or an error string
+        validAttrs = self.validateAttributes(attributes)
+        print("valid attrs: " + str(validAttrs))
+        if validAttrs:
             #calling the sqlite controller already defined in the ctor
             #takes *args and a query
+            print(attributes)
             self.sqliteController.DatabaseTransaction("UPDATE change "
                                                       "SET PROJECT_ID = ?, "
                                                       "FILE_PATH = ?, "
@@ -70,10 +78,16 @@ class controler():
                       attributes["date_of_change"],attributes["change_id"]))
             #updating the changes.
             self.getChangesSQLITE3()
-            validAttrs = True
+            print("Updated change")
+            print(self.commits[-1].toDict())
+        else:
+            #returing the error string in this instance
+            return validAttrs
         return validAttrs
+
     def checkProjectID(self,project_id):
         """function for checking that the project id passed into the create change is valid"""
+        errorString = ""
         control = project_controller.controller(self.dbname)
         projs = control.projects
         valid_project_id = False
@@ -81,4 +95,45 @@ class controler():
             proj = proj.toDict()
             if project_id == proj["project_id"]:
                 valid_project_id = True
-        return  valid_project_id
+        if not valid_project_id:
+            return "invalid project key"
+        else:
+            return True
+
+    def validateAttributes(self, validate_attributes):
+        """function for validating the project attributes"""
+        errorString = ""
+        validAttrs = True
+        #passing  a list of objets into the length validation function
+        validAttrs = self.lengthValidation([{"attr":validate_attributes["author"],"name":"author","upperbound":20,"lowerbound":0},
+                                                   {"attr":validate_attributes["description"], "name":"description", "upperbound":240, "lowerbound":0},
+                                                   {"attr":validate_attributes["file"],"name":"file","upperbound":30,"lowerbound":0},])
+        valid = self.checkProjectID(validate_attributes["project_id"])
+        if valid and validAttrs:
+            validAttrs = valid and validAttrs
+            return  validAttrs
+        else:
+            errorString = validAttrs + valid
+            return errorString
+
+    def lengthValidation(self,validation):
+        """takes a list of objects which have attr, name, upperbound, lowerbound"""
+        Valid = True
+        #valid attrs will return this string from the function
+        error_string = ""
+        for validate in validation:
+            length = len(str(validate["attr"]))
+            if length > validate["upperbound"] or length <= validate["lowerbound"]:
+                #building the error string in the funciton
+                error_string += self.buildErrorLenString(validate["name"],validate["lowerbound"],validate["upperbound"])
+                Valid = False
+        if Valid:
+            error_string = "Valid attributes have been passed"
+            return True
+        else:
+            return  error_string
+
+    def buildErrorLenString(self,attribute, lowerBound, upperBound):
+        """function for building an error with the incorrect length"""
+        return "Error: "+ attribute +" is not the correct length must be between "+ lowerBound + "  and "+  upperBound + \
+        " charectors\n"
